@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Árbol Organizacional 🌳</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f8f9; margin: 20px; }
+    h1 { text-align: center; color: #2c5e1a; }
+    .section { background: #fff; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);}
+    label { display: block; margin: 10px 0; }
+    button { padding: 12px 20px; background: #2c5e1a; color: white; border: none; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #3f7b26; }
+    #resultado { font-size: 1.2em; text-align: center; margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>🌳 El Árbol Organizacional</h1>
+  <form id="cuestionario">
+    
+    <div class="section">
+      <h2>Raíces (Metas y Propósito)</h2>
+      <label>1. Las metas de la empresa son claras y compartidas.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>2. Existe compromiso personal y colectivo hacia los objetivos.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>3. Los estándares de trabajo están bien definidos.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>4. Transformo la frustración en oportunidad de mejora.
+        <input type="number" min="1" max="5" required>
+      </label>
+    </div>
+    
+    <div class="section">
+      <h2>Tronco (Gestión de Problemas y Decisiones)</h2>
+      <label>1. Puedo expresar mis dificultades abiertamente.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>2. Los problemas se resuelven sin importar jerarquías.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>3. Las decisiones se toman con información y responsabilidad.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>4. El bajo rendimiento se enfrenta colectivamente.
+        <input type="number" min="1" max="5" required>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Ramas (Trabajo en Equipo y Colaboración)</h2>
+      <label>1. Existe verdadero trabajo en equipo.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>2. El criterio de cada miembro es respetado.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>3. La colaboración es natural y sin temor.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>4. En crisis se buscan soluciones en lugar de culpas.
+        <input type="number" min="1" max="5" required>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Hojas (Aprendizaje e Innovación)</h2>
+      <label>1. Se fomenta el aprendizaje con retroalimentación.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>2. Los errores son oportunidades para mejorar.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>3. La organización se adapta fácilmente a cambios.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>4. Se fomenta la innovación y actualización de procesos.
+        <input type="number" min="1" max="5" required>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>Frutos (Liderazgo y Cultura Organizacional)</h2>
+      <label>1. El ambiente de trabajo es agradable.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>2. El liderazgo es flexible y adaptable.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>3. Los líderes permiten autonomía y confianza.
+        <input type="number" min="1" max="5" required>
+      </label>
+      <label>4. Existe sinceridad y responsabilidad compartida.
+        <input type="number" min="1" max="5" required>
+      </label>
+    </div>
+
+    <div style="text-align:center;">
+      <button type="button" onclick="calcular()">Enviar Respuestas</button>
+    </div>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function calcular() {
+      const inputs = document.querySelectorAll("input[type=number]");
+      let suma = 0;
+      inputs.forEach(i => suma += parseInt(i.value || 0));
+      let promedio = suma / inputs.length;
+      let mensaje = "";
+
+      if (promedio >= 4) mensaje = "🌳 Árbol verde y fuerte (Salud Organizacional óptima)";
+      else if (promedio === 3) mensaje = "🍂 Árbol débil (Se necesitan mejoras)";
+      else mensaje = "🌑 Árbol marchito (Urgente intervención)";
+
+      document.getElementById("resultado").innerText = 
+        `Tu promedio es: ${promedio.toFixed(2)} → ${mensaje}`;
+    }
+  </script>
+</body>
+</html>
